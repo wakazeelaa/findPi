@@ -1,0 +1,23 @@
+/*
+This function prints the nth digit of Pi using the Bailey-Borwein-Plouffe (BBP) formula.
+
+Parameters:
+n (int): The digit of Pi to be printed
+
+Returns:
+void
+*/
+
+#include <stdio.h>
+#include <math.h>
+
+void print_nth_digit_of_pi(int n) {
+    double pi = 0.0;
+    int i;
+
+    for (i = 0; i <= n; i++) {
+        pi += (double)(1) / (pow(16, i)) * ((double)(4) / (8 * i + 1) - (double)(2) / (8 * i + 4) - (double)(1) / (8 * i + 5) - (double)(1) / (8 * i + 6));
+    }
+
+    printf("%.*f", n, pi);
+}
